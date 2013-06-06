@@ -1,4 +1,3 @@
-require "netrc"
 require "contaazul/configuration"
 require "contaazul/version"
 require "contaazul/error"
