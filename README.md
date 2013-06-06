@@ -1,4 +1,5 @@
 # contaazul
+[![Dependency Status](https://gemnasium.com/jnettome/contaazul.png)](https://gemnasium.com/jnettome/contaazul)
 
 A tiny *non-official* wrapper for [ContaAzul](http://contaazul.com.br)'s API.
 
