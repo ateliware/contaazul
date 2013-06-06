@@ -25,7 +25,6 @@ module Contaazul
         end
 
         builder.use FaradayMiddleware::FollowRedirects
-        builder.use FaradayMiddleware::Mashify
 
         builder.use FaradayMiddleware::ParseJson, :content_type => /\bjson$/
 

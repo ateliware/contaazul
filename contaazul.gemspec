@@ -23,6 +23,7 @@ Gem::Specification.new do |spec|
 
   spec.add_dependency 'addressable', '~> 2.3.4'
   spec.add_dependency 'faraday', '~> 0.8.7'
+  spec.add_dependency 'faraday_middleware', '~> 0.8'
   spec.add_dependency 'multi_json', '~> 1.7.6'
 
   spec.required_rubygems_version = '>= 1.8'
