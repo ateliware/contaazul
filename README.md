@@ -1,5 +1,5 @@
 # contaazul
-[![Dependency Status](https://gemnasium.com/jnettome/contaazul.png)](https://gemnasium.com/jnettome/contaazul)
+[![Dependency Status](https://gemnasium.com/jnettome/contaazul.png)](https://gemnasium.com/jnettome/contaazul) [![Build Status](https://travis-ci.org/jnettome/contaazul.png?branch=master)](https://travis-ci.org/jnettome/contaazul)
 
 A tiny *non-official* wrapper for [ContaAzul](http://contaazul.com.br)'s API.
 
