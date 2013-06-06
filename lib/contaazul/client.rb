@@ -1,9 +1,6 @@
 require 'contaazul/authentication'
-# require 'contaazul/connection'
-# require 'contaazul/repository'
-# require 'contaazul/request'
-
-# require 'contaazul/client/github'
+require 'contaazul/connection'
+require 'contaazul/request'
 
 module Contaazul
   class Client
@@ -14,13 +11,12 @@ module Contaazul
       Configuration::VALID_OPTIONS_KEYS.each do |key|
         send("#{key}=", options[key])
       end
-
     end
 
     include Contaazul::Authentication
-    # include Contaazul::Connection
-    # include Contaazul::Request
+    include Contaazul::Connection
+    include Contaazul::Request
 
-    # include Contaazul::Client::GitHub
+    # include Contaazul::Client::Resource
   end
 end

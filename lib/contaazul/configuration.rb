@@ -8,21 +8,21 @@ module Contaazul
       :faraday_config_block,
       :api_version,
       :api_endpoint,
-      :login,
-      :password,
       :proxy,
       :oauth_token,
+      :company_token,
       :client_id,
       :client_secret,
       :user_agent,
       :request_host,
-      :netrc,
-      :auto_traversal,
+      :public_token,
       :per_page].freeze
 
     DEFAULT_ADAPTER             = Faraday.default_adapter
-    DEFAULT_API_VERSION         = 3
-    DEFAULT_API_ENDPOINT        = ENV['CONTAAZUL_API_ENDPOINT'] || 'http://api.contaazul.com.br/'
+    DEFAULT_API_VERSION         = 1
+    DEFAULT_API_ENDPOINT        = ENV['CONTAAZUL_API_ENDPOINT'] || 'http://api.contaazul.com.br/pub/'
+    DEFAULT_COMPANY_TOKEN       = ENV['CONTAAZUL_API_COMPANY_TOKEN'] || "b6445aa301aaff61e641a0b85f26749e"
+    DEFAULT_PUBLIC_TOKEN        = ENV['CONTAAZUL_API_PUBLIC_TOKEN'] || ""
     DEFAULT_USER_AGENT          = "Contaazul Non-Official Ruby Gem #{Contaazul::VERSION}".freeze
     DEFAULT_AUTO_TRAVERSAL      = false
 
@@ -44,6 +44,14 @@ module Contaazul
       @api_endpoint = File.join(value, "")
     end
 
+    def company_token=(value)
+      @company_token = value
+    end
+
+    def public_token=(value)
+      @public_token = value
+    end
+
     def faraday_config(&block)
       @faraday_config_block = block
     end
@@ -52,16 +60,14 @@ module Contaazul
       self.adapter             = DEFAULT_ADAPTER
       self.api_version         = DEFAULT_API_VERSION
       self.api_endpoint        = DEFAULT_API_ENDPOINT
-      self.login               = nil
-      self.password            = nil
+      self.company_token       = DEFAULT_COMPANY_TOKEN
+      self.public_token        = DEFAULT_PUBLIC_TOKEN
       self.proxy               = nil
       self.oauth_token         = nil
       self.client_id           = nil
       self.client_secret       = nil
       self.request_host        = nil
-      self.netrc               = false
       self.user_agent          = DEFAULT_USER_AGENT
-      self.auto_traversal      = DEFAULT_AUTO_TRAVERSAL
     end
   end
 end

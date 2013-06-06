@@ -74,9 +74,7 @@ end
 def contaazul_url(url)
   if url =~ /^http/
     url
-  elsif @client && @client.authenticated?
-    "http://api.contaazul.com.br/pub#{url}"
   else
-    "http://api.contaazul.com.br#{url}"
+    "http://api.contaazul.com.br/pub/#{url}"
   end
 end
