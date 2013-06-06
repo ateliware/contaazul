@@ -40,7 +40,8 @@ dependency. Please require it explicitly if you're running Ruby 1.8
 
 ## Copyright
 
-Copyright (c) 2013 João Netto.
+DO WHATEVER YOU WANT TO!
+This project is basically a fork of [octokit.rb](https://github.com/octokit/octokit.rb)
 See [LICENSE][] for details.
 
 [license]: LICENSE.md
