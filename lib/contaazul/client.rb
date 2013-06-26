@@ -25,7 +25,7 @@ module Contaazul
     end
 
     def create_link
-      "<a href=\"javascript:window.open('#{self.api_endpoint}authorization/request/#{self.client_secret}?redirectTo=/','popUpWindow', 'toolbar=no,location=no,status=yes,menubar=no,scrollbars=yes,resizable=yes,width=430, height=500')\">Integrar com o ContaAzul</a>"
+      "#{self.api_endpoint}authorization/request/#{self.client_secret}?redirectTo=/"
     end
   end
 end
