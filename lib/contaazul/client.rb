@@ -18,5 +18,14 @@ module Contaazul
     include Contaazul::Request
 
     # include Contaazul::Client::Resource
+
+    def to_s
+      return create_link unless false #authenticated?
+      super
+    end
+
+    def create_link
+      "<a href=\"javascript:window.open('#{self.api_endpoint}authorization/request/#{self.client_secret}?redirectTo=/','popUpWindow', 'toolbar=no,location=no,status=yes,menubar=no,scrollbars=yes,resizable=yes,width=430, height=500')\">Integrar com o ContaAzul</a>"
+    end
   end
 end

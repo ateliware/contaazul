@@ -1,5 +1,5 @@
 # contaazul
-[![Dependency Status](https://gemnasium.com/jnettome/contaazul.png)](https://gemnasium.com/jnettome/contaazul) [![Build Status](https://travis-ci.org/jnettome/contaazul.png?branch=master)](https://travis-ci.org/jnettome/contaazul)
+[![Dependency Status](https://gemnasium.com/ateliware/contaazul.png)](https://gemnasium.com/ateliware/contaazul) [![Build Status](https://travis-ci.org/ateliware/contaazul.png?branch=master)](https://travis-ci.org/ateliware/contaazul)
 
 A tiny *non-official* wrapper for [ContaAzul](http://contaazul.com.br)'s API.
 
@@ -38,6 +38,7 @@ dependency. Please require it explicitly if you're running Ruby 1.8
 3. Commit your changes (`git commit -am 'Add some feature'`)
 4. Push to the branch (`git push origin my-new-feature`)
 5. Create new Pull Request
+
 
 ## Copyright
 

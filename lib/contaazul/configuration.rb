@@ -11,18 +11,18 @@ module Contaazul
       :proxy,
       :oauth_token,
       :company_token,
+      :external_token,
       :client_id,
       :client_secret,
       :user_agent,
       :request_host,
-      :public_token,
       :per_page].freeze
 
     DEFAULT_ADAPTER             = Faraday.default_adapter
     DEFAULT_API_VERSION         = 1
     DEFAULT_API_ENDPOINT        = ENV['CONTAAZUL_API_ENDPOINT'] || 'http://api.contaazul.com.br/pub/'
-    DEFAULT_COMPANY_TOKEN       = ENV['CONTAAZUL_API_COMPANY_TOKEN'] || "b6445aa301aaff61e641a0b85f26749e"
-    DEFAULT_PUBLIC_TOKEN        = ENV['CONTAAZUL_API_PUBLIC_TOKEN'] || ""
+    DEFAULT_COMPANY_TOKEN       = ENV['CONTAAZUL_API_COMPANY_TOKEN']
+    DEFAULT_EXTERNAL_TOKEN      = ENV['CONTAAZUL_API_EXTERNAL_TOKEN'] || "b6445aa301aaff61e641a0b85f26749e"
     DEFAULT_USER_AGENT          = "Contaazul Non-Official Ruby Gem #{Contaazul::VERSION}".freeze
     DEFAULT_AUTO_TRAVERSAL      = false
 
@@ -48,8 +48,8 @@ module Contaazul
       @company_token = value
     end
 
-    def public_token=(value)
-      @public_token = value
+    def external_token=(value)
+      @external_token = value
     end
 
     def faraday_config(&block)
@@ -61,7 +61,7 @@ module Contaazul
       self.api_version         = DEFAULT_API_VERSION
       self.api_endpoint        = DEFAULT_API_ENDPOINT
       self.company_token       = DEFAULT_COMPANY_TOKEN
-      self.public_token        = DEFAULT_PUBLIC_TOKEN
+      self.external_token      = DEFAULT_EXTERNAL_TOKEN
       self.proxy               = nil
       self.oauth_token         = nil
       self.client_id           = nil

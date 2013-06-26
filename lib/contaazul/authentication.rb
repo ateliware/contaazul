@@ -1,7 +1,7 @@
 module Contaazul
   module Authentication
     def authenticated?
-      !public_token.empty?
+      !company_token.empty?
     end
 
     def oauthed?

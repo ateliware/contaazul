@@ -61,7 +61,7 @@ describe Contaazul::Client do
     end
 
     it "should request and return a public token" do
-      stub_get("oauth/requestkey/#{Contaazul.company_token}").
+      stub_get("oauth/requestkey/#{Contaazul.external_token}").
         to_return \
           :status => 200,
           :body => "1f74b13f1e5c6c69cb5d7fbaabb1e2cb",
@@ -69,10 +69,22 @@ describe Contaazul::Client do
             :content_type => 'application/json; charset=utf-8'
           }
 
-      response = Contaazul.get "oauth/requestkey/#{Contaazul.company_token}"
+      response = Contaazul.get "oauth/requestkey/#{Contaazul.external_token}"
       expect(response).to eq("1f74b13f1e5c6c69cb5d7fbaabb1e2cb")
-      # set verify public_token, change this get to an auth method
-      # remember, test Contaazul::Client.new passing :oauth_token
+    end
+
+    it "should get a valid oauth2 instance" do
+      stub_get("oauth/requestkey/#{Contaazul.external_token}").
+        to_return \
+          :status => 200,
+          :body => "1f74b13f1e5c6c69cb5d7fbaabb1e2cb",
+          :header => {
+            :content_type => 'application/json; charset=utf-8'
+          }
+
+      response = Contaazul.get "oauth/requestkey/#{Contaazul.external_token}"
+
+      client = Contaazul::Client.new(:oauth_token => response)
     end
 
   end
