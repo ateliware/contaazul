@@ -14,12 +14,12 @@ describe Contaazul::Client do
       Contaazul.reset
     end
 
-    it "defaults to http://app.contaazul.com.br/" do
+    it "defaults to https://api.contaazul.com.br/" do
       client = Contaazul::Client.new
-      expect(client.api_endpoint).to eq('http://app.contaazul.com.br/')
+      expect(client.api_endpoint).to eq('https://api.contaazul.com.br/')
     end
 
-    it "is set " do
+    it "is set" do
       Contaazul.api_endpoint = 'http://lvh.me/'
       client = Contaazul::Client.new
       expect(client.api_endpoint).to eq('http://lvh.me/')
@@ -35,7 +35,7 @@ describe Contaazul::Client do
     end
 
     it "should request and return a public token" do
-      stub_request(:get, "http://app.contaazul.com.br/oauth/requestkey/b6445aa301aaff61e641a0b85f26749e").
+      stub_request(:get, "#{Contaazul.api_endpoint}oauth/requestkey/#{Contaazul.external_token}").
          with(:headers => {'Accept'=>'application/json', 'Accept-Encoding'=>'gzip;q=1.0,deflate;q=0.6,identity;q=0.3', 'User-Agent'=>'Contaazul Non-Official Ruby Gem 0.1.0dev'}).
          to_return(:status => 200, :body => '{ "publicToken" : "1f74b13f1e5c6c69cb5d7fbaabb1e2cb" }', :headers => {
           :content_type => "application/json; charset=utf-8"
@@ -46,7 +46,7 @@ describe Contaazul::Client do
     end
 
     it "should get a valid oauth2 instance" do
-      stub_request(:get, "http://app.contaazul.com.br/oauth/requestkey/b6445aa301aaff61e641a0b85f26749e").
+      stub_request(:get, "#{Contaazul.api_endpoint}oauth/requestkey/#{Contaazul.external_token}").
          with(:headers => {'Accept'=>'application/json', 'Accept-Encoding'=>'gzip;q=1.0,deflate;q=0.6,identity;q=0.3', 'User-Agent'=>'Contaazul Non-Official Ruby Gem 0.1.0dev'}).
          to_return(:status => 200, :body => '{ "publicToken" : "1f74b13f1e5c6c69cb5d7fbaabb1e2cb" }', :headers => {
           :content_type => "application/json; charset=utf-8"

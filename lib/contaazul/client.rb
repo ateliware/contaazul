@@ -25,7 +25,7 @@ module Contaazul
     end
 
     def create_link
-      "#{self.api_endpoint}authorization/request/#{self.client_secret}?redirectTo=/"
+      "#{self.api_endpoint}pub/oauth/requestkey/#{self.client_secret}?redirectTo=#{self.return_url}"
     end
   end
 end

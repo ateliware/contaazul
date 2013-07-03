@@ -16,14 +16,16 @@ module Contaazul
       :client_secret,
       :user_agent,
       :request_host,
+      :return_url,
       :per_page].freeze
 
     DEFAULT_ADAPTER             = Faraday.default_adapter
     DEFAULT_API_VERSION         = 1
-    DEFAULT_API_ENDPOINT        = ENV['CONTAAZUL_API_ENDPOINT'] || 'http://app.contaazul.com.br/'
+    DEFAULT_API_ENDPOINT        = ENV['CONTAAZUL_API_ENDPOINT'] || 'https://api.contaazul.com.br/'
     DEFAULT_COMPANY_TOKEN       = ENV['CONTAAZUL_API_COMPANY_TOKEN']
-    DEFAULT_EXTERNAL_TOKEN      = ENV['CONTAAZUL_API_EXTERNAL_TOKEN'] || "b6445aa301aaff61e641a0b85f26749e"
+    DEFAULT_EXTERNAL_TOKEN      = ENV['CONTAAZUL_API_EXTERNAL_TOKEN'] || "0000013f-1fa8-cd09-0000-004da765a080"
     DEFAULT_USER_AGENT          = "Contaazul Non-Official Ruby Gem #{Contaazul::VERSION}".freeze
+    DEFAULT_RETURN_URL          = ENV['CONTAAZUL_API_RETURN_URL'] || "/"
     DEFAULT_AUTO_TRAVERSAL      = false
 
     attr_accessor(*VALID_OPTIONS_KEYS)
@@ -48,6 +50,10 @@ module Contaazul
       @company_token = value
     end
 
+    def return_url=(value)
+      @return_url = value
+    end
+
     def external_token=(value)
       @external_token = value
     end
@@ -68,6 +74,7 @@ module Contaazul
       self.client_secret       = nil
       self.request_host        = nil
       self.user_agent          = DEFAULT_USER_AGENT
+      self.return_url          = DEFAULT_RETURN_URL
     end
   end
 end
