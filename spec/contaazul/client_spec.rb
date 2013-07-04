@@ -53,6 +53,7 @@ describe Contaazul::Client do
           })
 
       response = Contaazul.get "oauth/requestkey/#{Contaazul.external_token}"
+      # @client.to_s
       # client = Contaazul::Client.new(:oauth_token => response)
     end
 
