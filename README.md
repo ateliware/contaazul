@@ -19,8 +19,21 @@ Or install it yourself as:
 
 ## Usage
 
-### Get all customers
-    Contaazul.customers
+### Clients
+
+    $ Contaazul.clients # Get all
+    $ Contaazul.client(id) # Get one
+    $ Contaazul.create_client(options) # Create a client with parameters in options hash
+    $ Contaazul.edit_client(id, options) # Update client passed in ID with params in options hash
+    $ Contaazul.delete_client(id) # Remote client passed in ID
+
+### Statements
+
+    $ Contaazul.statements # Get all
+    $ Contaazul.statement(id) # Get one
+    $ Contaazul.create_statement(options) # Create a statement with parameters in options hash
+    $ Contaazul.edit_statementid, options) # Update statement passed in ID with params in options hash
+    $ Contaazul.delete_statement(id) # Remote statement passed in ID
 
 
 ## JSON dependency
