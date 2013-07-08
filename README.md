@@ -35,6 +35,14 @@ Or install it yourself as:
     $ Contaazul.edit_statementid, options) # Update statement passed in ID with params in options hash
     $ Contaazul.delete_statement(id) # Remote statement passed in ID
 
+### Cities
+
+    $ Contaazul.cities # Get all
+    $ Contaazul.city(id) # Get one
+
+## More info about integration
+
+See [official docs](https://app.contaazul.com.br/assets/doc/ContaAzulApiDoc_1_0.pdf).
 
 ## JSON dependency
 

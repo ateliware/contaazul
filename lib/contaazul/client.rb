@@ -77,5 +77,23 @@ module Contaazul
       record = Contaazul.delete("pub/contact/customer/#{id}")
       record
     end
+
+    # Get all cities
+    #
+    # @return [Array(Hash)] Cities information
+    def cities
+      records = Contaazul.get("pub/city")
+      records
+    end
+
+    # Get a single city
+    #
+    # @param id [String] ID of city to fetch
+    # @return [Hash::Mash] Client information
+    def city(id)
+      record = Contaazul.get("pub/city/#{id}")
+      record
+    end
+
   end
 end
