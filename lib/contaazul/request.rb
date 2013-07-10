@@ -6,8 +6,9 @@ module Contaazul
       conn = Faraday.new(:url => self.api_endpoint) do |faraday|
         faraday.adapter Faraday.default_adapter
       end
-      conn.headers["CompanyToken"] = self.company_token || "";
-      conn.headers["ExternalApplicationToken"] = self.external_token || "";
+      conn.headers["CompanyToken"] = self.company_token || ""
+      conn.headers["ExternalApplicationToken"] = self.external_token || ""
+      conn.headers['Content-Type'] = 'application/json'
 
       response = conn.get(path)
       response.body
@@ -17,8 +18,9 @@ module Contaazul
       conn = Faraday.new(:url => self.api_endpoint) do |faraday|
         faraday.adapter Faraday.default_adapter
       end
-      conn.headers["CompanyToken"] = self.company_token || "";
-      conn.headers["ExternalApplicationToken"] = self.external_token || "";
+      conn.headers["CompanyToken"] = self.company_token || ""
+      conn.headers["ExternalApplicationToken"] = self.external_token || ""
+      conn.headers['Content-Type'] = 'application/json'
 
       response = conn.patch(path)
       response.body
@@ -29,10 +31,15 @@ module Contaazul
         faraday.adapter Faraday.default_adapter
         faraday.use FaradayMiddleware::ParseJson
       end
-      conn.headers["CompanyToken"] = self.company_token || "";
-      conn.headers["ExternalApplicationToken"] = self.external_token || "";
+      conn.headers["CompanyToken"] = self.company_token || ""
+      conn.headers["ExternalApplicationToken"] = self.external_token || ""
+      conn.headers['Content-Type'] = 'application/json'
 
       response = conn.post(path, options)
+      puts ""
+      puts ""
+      puts "---------------------------------------------------------"
+      puts "[ContaAzul] #{response.inspect}"
       response.body
     end
 
@@ -40,8 +47,9 @@ module Contaazul
       conn = Faraday.new(:url => self.api_endpoint) do |faraday|
         faraday.adapter Faraday.default_adapter
       end
-      conn.headers["CompanyToken"] = self.company_token || "";
-      conn.headers["ExternalApplicationToken"] = self.external_token || "";
+      conn.headers["CompanyToken"] = self.company_token || ""
+      conn.headers["ExternalApplicationToken"] = self.external_token || ""
+      conn.headers['Content-Type'] = 'application/json'
 
       response = conn.delete(path)
       response.body
